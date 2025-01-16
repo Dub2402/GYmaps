@@ -1,13 +1,18 @@
 from Parser import Parser
 from dublib.Methods.System import Clear
+from dublib.Methods.Filesystem import MakeRootDirectories
 from PyQt6 import QtGui
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QLineEdit, QPushButton, QVBoxLayout, QWidget
 import sys
 from threading import Thread
+import os
 
 Clear()
 
+if not os.path.exists("Output"):
+	MakeRootDirectories(["Output"])
+	
 class Window(QWidget):
 	# Конструктор приложения.
 	def __init__(self):
